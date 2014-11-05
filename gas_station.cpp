@@ -40,7 +40,6 @@ class Solution {
 };
 
 int main(int argc, char* argv[]){
-    cout << "hello world" << endl;
     Solution s = Solution();
     vector<int> gas1;
     vector<int> cost1;
