@@ -53,6 +53,54 @@ class Solution {
 
     public:
         bool isSymmetric(TreeNode *root) {
+            if (root == NULL) {
+                return true;
+            }
+            stack<TreeNode*> st;
+            vector<TreeNode*> vec;
+            st.push(root);
+
+            while(true) {
+                while(!st.empty()) {
+                    TreeNode* t = st.top();
+                    vec.push_back(t->left);
+                    vec.push_back(t->right);
+                    st.pop();
+                }
+                if (!checkVector(vec)) {
+                    return false;
+                }
+                for (int i=0; i < vec.size(); i++) {
+                    TreeNode* t = vec[i];
+                    if (t != NULL) {
+                        st.push(t);
+                    }
+                }
+                vec.clear();
+                if (st.empty()) {
+                    break;
+                }
+            }
+            return true;
+        }
+
+        bool checkVector(vector<TreeNode*> v) {
+            int size = v.size();
+            int half = size / 2;
+            for (int i = 0; i < half; i++) {
+                TreeNode* t = v[i];
+                TreeNode* rt = v[size - i -1];
+                if (t && rt) {
+                    if (t->val != rt->val) {
+                        return false;
+                    }
+                } else {
+                    if (t != NULL or rt != NULL) {
+                        return false;
+                    }
+                }
+            }
+            return true;
         }
 };
 
