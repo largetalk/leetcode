@@ -104,6 +104,31 @@ class Solution {
         }
 };
 
+//recursion version, from net
+//class Solution {
+//    public:
+//        bool check(TreeNode *leftNode, TreeNode *rightNode)
+//        {
+//            if (leftNode == NULL && rightNode == NULL)
+//                return true;
+//
+//            if (leftNode == NULL || rightNode == NULL)
+//                return false;
+//
+//            return leftNode->val == rightNode->val && check(leftNode->left, rightNode->right) && 
+//                check(leftNode->right, rightNode->left);
+//        }
+//
+//        bool isSymmetric(TreeNode *root) {
+//            // Start typing your C/C++ solution below
+//            // DO NOT write int main() function
+//            if (root == NULL)
+//                return true;
+//
+//            return check(root->left, root->right);
+//        }
+//};
+
 int main(int args, char* argv[]) {
     TreeNode* root = new TreeNode(1);
     TreeNode* left = new TreeNode(2);
