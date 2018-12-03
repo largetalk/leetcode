@@ -77,9 +77,6 @@ class Solution {
             }else{
                 if(p[j]=='*'){
                     //cout << s << ' ' << p << ' ' << i << ' ' << j << '\n';
-                    if (j==0) {
-                        return 1;
-                    }
                     if(p[j-1]=='.'||p[j-1]==s[i]){
                         if(isMatch_(s,p,i-1,j)){
                             return 1;
@@ -107,9 +104,7 @@ class Solution {
 int main(int argc, const char * argv[]) {
     Solution s = Solution();
 
-    cout << s.isMatch("abcd", "*") << '\n';
+    cout << s.isMatch("mississippi", "mis*is*p*.") << '\n';
     cout << s.isMatch("abcd", "abcd*") << '\n';
-    cout << s.isMatch("abcd", "abc*") << '\n';
-    cout << s.isMatch("abc", "abcd*") << '\n';
 }
 
