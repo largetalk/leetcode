@@ -29,18 +29,18 @@ class Solution {
                 while(t1 < t2) {
                     int sum = nums[i] + nums[t1] + nums[t2];
                     int gap = sum - target;
-                    //cout << nums[i] << ' ' << nums[t1] << ' ' << nums[t2] << endl;
-                    if (gap < 0) {
-                        gap = -gap;
-                    }
-                    if (gap < minGap) {
-                        minGap = gap;
+                    if (gap == 0)
+                        return target;
+                    cout << nums[i] << ' ' << nums[t1] << ' ' << nums[t2] << ' ' << sum << ' ' << gap << endl;
+                    if (abs(gap) < minGap) {
+                        minGap = abs(gap);
                         ans = sum;
                     }
-                    if(nums[t1] + nums[t2] < -nums[i])
-                        ++t1;
-                    else
-                        --t2;
+                    if(gap < 0) {
+                            ++t1;
+                    } else {
+                            --t2;
+                    }
                 }
             }
             return ans;
@@ -51,20 +51,20 @@ class Solution {
 
 int main(int argc, const char * argv[]) {
     Solution s = Solution();
-    //vector<int> height;
-    //height.push_back(-1);
-    //height.push_back(2);
-    //height.push_back(1);
-    //height.push_back(-4);
+    vector<int> height;
+    height.push_back(-1);
+    height.push_back(2);
+    height.push_back(1);
+    height.push_back(-4);
 
-    //int target = 1;
+    int target = 1;
 
-    //cout << s.threeSumClosest(height, target) << endl;
+    cout << s.threeSumClosest(height, target) << endl;
 
-    int a[] = {1,2,4,8,16,32,64,128};
-    vector<int> nums(a, a+8);
-    int target = 82;
-    cout << s.threeSumClosest(nums, target) << endl;
+    //int a[] = {1,2,4,8,16,32,64,128};
+    //vector<int> nums(a, a+8);
+    //int target = 82;
+    //cout << s.threeSumClosest(nums, target) << endl;
 
 }
 
